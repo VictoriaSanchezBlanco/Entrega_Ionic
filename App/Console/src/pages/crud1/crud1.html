@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 id="tittle">ADD Console</h1>
+  <form [formGroup]="list" (ngSubmit)="addConsoles()" novalidate>
+      <ion-list> 
+        <ion-item id = 'colorList'>
+          <ion-label id="prueba" stacked>Name:</ion-label>
+          <ion-input formControlName="name" type="text" placeholder="name"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="list.get('name').errors && list.get('name').dirty">
+          <p color="danger" ion-text *ngIf="list.get('name').hasError('required')">Campo obligatorio</p>
+        </ion-item>
+        <ion-item id = 'colorList'>
+          <ion-label id="prueba" stacked>Date:</ion-label>
+          <ion-input formControlName="date" type="text" placeholder="date"></ion-input>
+        </ion-item>
+        <ion-item *ngIf="list.get('date').errors && list.get('date').dirty">
+          <p color="danger" ion-text *ngIf="list.get('date').hasError('required')">Campo obligatorio</p>
+        </ion-item>
+        <ion-item id = 'colorList'>
+            <ion-label id="prueba" stacked>Feature:</ion-label>
+            <ion-input formControlName="feature" type="text" placeholder="feature"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="list.get('feature').errors && list.get('feature').dirty">
+            <p color="danger" ion-text *ngIf="list.get('feature').hasError('required')">Campo obligatorio</p>
+          </ion-item>
+          <ion-item id = 'colorList'>
+            <ion-label id="prueba" stacked>Games:</ion-label>
+            <ion-input formControlName="games" type="text" placeholder="games"></ion-input>
+          </ion-item>
+          <ion-item *ngIf="list.get('games').errors && list.get('games').dirty">
+            <p color="danger" ion-text *ngIf="list.get('games').hasError('required')">Campo obligatorio</p>
+          </ion-item>
+      </ion-list>
+      <div padding>
+        <button ion-button full type="submit" [disabled]="list.invalid">Add</button>
+      </div>
+    </form>
+</ion-content>

@@ -1,0 +1,20 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <h1 id="tittle">Delete Console</h1>
+  <ion-list>
+      <ion-item *ngFor="let console of consoles">
+        <p id="letra">{{console.name}}</p>
+        <p id="letra">{{console.date}}</p>
+        <p id="letra">{{console.feature}}</p>
+        <p id="letra">{{console.games}}</p> 
+        <button (click)="delete(console.id)">Delete</button>
+      </ion-item>
+    </ion-list>
+</ion-content>
